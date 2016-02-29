@@ -9,7 +9,13 @@ set :repo_url, 'git@github.com:jbyall/helloworld.git'
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/home/deploy/helloworld'
+set :pty, true
 
+set :ssh_options, {
+	forward_agent: true,
+	auth_methods: ["publickey"],
+	keys: ["/Users/JBYALL/Library/aws/jbond-key.pem"]
+}
 # Default value for :scm is :git
 # set :scm, :git
 
